@@ -1,5 +1,5 @@
 import java.util.Arrays;
- 
+
 public class Main {
 
     public static void main (String [] args) {
@@ -99,6 +99,12 @@ public class Main {
         }
         System.out.println("Баланс: " + checkBalance(checkArr));
 
+        //Задание 7:
+        int arrToShift [] = {1,2,3,4,5,6,7,8,9,10};
+//        System.out.println(Arrays.toString(arrToShift));
+
+        arrToShift = shiftArray(arrToShift, -3);
+//        System.out.println(Arrays.toString(arrToShift));
 
     }
 
@@ -121,4 +127,27 @@ public class Main {
         return false;
     }
 
-} 
+    //Задание 7:
+    public static int[] shiftArray( int arr [], int n){
+        //System.out.println(Arrays.toString(arr));
+        if (n>=0) {
+            for (int j = 0; j < n; j++) {
+                int mamory = arr[0];
+                for (int i = 0; i < arr.length - 1; i++) {
+                    arr[i] = arr[i + 1];
+                }
+                arr[arr.length - 1] = mamory;
+            }
+        } else {
+            for (int j = 0; j > n; j--) {
+                int mamory = arr[arr.length - 1];
+                for (int i = arr.length - 1; i > 0; i--) {
+                    arr[i] = arr[i - 1];
+                }
+                arr[0] = mamory;
+            }
+        }
+        return arr;
+        //System.out.println(Arrays.toString(arr));
+    }
+}
